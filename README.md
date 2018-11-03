@@ -1,7 +1,5 @@
 # The Open Project
-Hello VGDC members!
-
-To start contributing to the project, please join the Team page for this project at https://github.com/orgs/ubco-video-game-development-club/teams/open-project-2018.
+Hello VGDC members! Welcome to the UBCO Video Game Development Club's Open Project repository. This is where you will upload files, view changes, review others' changes and access the most recent version of the game!
 
 ## How to Contribute
 This project allows everybody to contribute as little or as much as they want and still make a difference. It could be adding some voice lines, sound effects, a script, or sprites (images) - anything. This section goes through the steps of adding your creations to the project.
