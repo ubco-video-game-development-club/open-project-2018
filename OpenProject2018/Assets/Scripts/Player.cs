@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour {
-
+    
     /// <summary>
     /// Rigidbody velocity of the player.
     /// </summary>
@@ -13,7 +11,7 @@ public class Player : MonoBehaviour {
     /// Minimum time delay between firing bullets.
     /// </summary>
     public float attackCooldown = 0;
-
+    
     private float attackTimer = 0;
 
     /// <summary>

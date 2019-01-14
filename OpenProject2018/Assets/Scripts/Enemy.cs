@@ -1,8 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
 
 public class Enemy : MonoBehaviour {
+
+    public TextAsset movementSequenceFile;
+
+    private EnemyAction[] actionSequence;
+    private int actionIndex;
 
     /// <summary>
     /// Ordered list of points that the enemy will path along.
@@ -11,7 +15,7 @@ public class Enemy : MonoBehaviour {
     /// <summary>
     /// How close the player must be to a point on the path before being considered at that point.
     /// </summary>
-    public float equivalenceDistance = 0.01f;
+    public float stopDistance = 0.01f;
     /// <summary>
     /// Velocity at which the enemy will travel between points on the path.
     /// </summary>
@@ -52,14 +56,45 @@ public class Enemy : MonoBehaviour {
 	
 	private void FixedUpdate ()
     {
-        Move();
+        bool completed = actionSequence[actionIndex].Run(gameObject);
+
+        if (completed)
+        {
+            actionIndex++;
+            actionSequence[actionIndex].Init(gameObject);
+        }
 	}
+
+    private void ReadMovementSequenceFile()
+    {
+        string[] sequence = movementSequenceFile.text.Split(' ');
+        for (int i = 0; i < sequence.Length; i++)
+        {
+            string word = sequence[i];
+            switch (word)
+            {
+                case "MOVE":
+                    EnemyMovementAction move = new EnemyMovementAction();
+                    float x = float.Parse(sequence[++i]);
+                    float y = float.Parse(sequence[++i]);
+                    move.targetPosition = new Vector3(x, y, 0);
+                    float t = float.Parse(sequence[++i]);
+                    move.moveDuration = t;
+                    break;
+                case "IDLE":
+                    EnemyMovementAction idle = new EnemyMovementAction();
+                    float d = float.Parse(sequence[++i]);
+                    idle.moveDuration = d;
+                    break;
+            }
+        }
+    }
 
     private void Move()
     {
         lerpTimer += Time.deltaTime;
 
-        if (Vector3.Distance(targetPos, transform.position) < equivalenceDistance)
+        if (Vector3.Distance(targetPos, transform.position) < stopDistance)
         {
             lerpTimer = 0;
             TargetNextPoint();
@@ -72,11 +107,13 @@ public class Enemy : MonoBehaviour {
     private void TargetNextPoint()
     {
         pathIndex++;
+
         if (pathIndex == path.Length)
         {
             Destroy(gameObject);
             return;
         }
+
         prevPos = path[pathIndex - 1].position;
         targetPos = path[pathIndex].position;
         lerpDuration = Vector3.Distance(prevPos, targetPos) / movementSpeed;
