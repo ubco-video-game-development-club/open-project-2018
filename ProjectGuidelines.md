@@ -95,19 +95,22 @@
             -cutting technique: cut one tile into four part and rearrange them. ie. top left switch with bottom right, top right switch with bottom left. and add material in the middle to hide any obvious pattern.
             
     5. **Background
-    *detail information would be added upon request. it is one of the most difficult part, and it it too complex to describe in words.
+        *detail information would be added upon request. it is one of the most difficult part, and it it too complex to describe in words.
         -shadow
         -color
         -shape
         -adding reflection: copy the object you want to reflect and flip it in the water / mirror, reduce the opacity and add distortion effect manually. this is the only place you should be using the alpha channel.
         //insert reflection.png here
+        
     6. **Character
-    *further discussion would be required. a single style would be selected for all character.
+        *further discussion would be required. a single style would be selected for all character.
+    
     7. **Animation
-    *further discussion would be required. 
+        *further discussion would be required. 
         -onion skin
         -blue/red mode
         -frame tags
+        
     8. **Miscellaneous
         -layer
         -background: object should always have a transparent background. in other words, don't draw background for objects.
@@ -118,6 +121,7 @@
     **Part II: Guideline and standard 
     8. **Sprite sheet standard
         *further discussion would be required. the size and format are highly dependent on the size and the number of the assets.
+    
         a) size of the sprite sheet: should be always be multiple of size of the tile. Individual submission should adjust the size according to the size of the object.ie. don't create a 1920* 1080 sprite sheet for a 8* 8 sprite.
         
         b) background for object sprite: no back ground should be included. ie. leave it as transparent. In fact, create a file with transparent background or no background and dont ever add them.
@@ -139,19 +143,24 @@
             -integration of sprite: communcate with other team and other artist before do any attempt of integrating the sprites sheets. save them in .png format with an unambiguous file name. note, use "_" instead of spaces in the name. Attach a file or include description of necessary.
        
     9. **Lighting channel
-    *detail information would be added latter.
-    *further discussion would be required. ideally, each of the direction channels should have at least five different colors representing fire different angle. ie.0, 45, 90, 135, 180 degree.
+        *detail information would be added latter.
+        *further discussion would be required. ideally, each of the direction channels should have at least five different colors representing fire different angle. ie.0, 45, 90, 135, 180 degree.
+    
         a) vertical channel: color TBD. represent the vertial directions that the pixel is facing. ie. up and down. 
         //insert vertical_channel.png here
         
         b) horizontal channel: color TBD. represent the horizontal directions that the pixel is facing. ie. left and right. 
         //insert horizontal_channel.png here
+        
+
+        
     10. **Reflection channel
     *detail information would be added latter.
         a) material: color TBD. Different material have different effect of reflection. ie. metal would be more reflective than wood.
         
     11. **Scatter channel
-    *detail information would be added latter.
+        *detail information would be added latter.
+    
         a) fragment: each color represent a different piece of fragment which would be lauched to a different direction when explode. note, only assign one color to one piece of fragment and do not reuse colors.
         
         a) noise
@@ -165,12 +174,12 @@
     13. **Coordinate system: use pixel as unit is recommonded, do not create a tile coordinate system. trust me, i'm an engineer.
     
     14. **General art style: TBD
-    *further discussion would be required.
-    //insert art_style_example_1.png here
-    //insert art_style_example_2.png here
-    //insert art_style_example_3.png here
-    //insert art_style_example_4.png here
-    //insert art_style_example_5.png here
+        *further discussion would be required.
+        //insert art_style_example_1.png here
+        //insert art_style_example_2.png here
+        //insert art_style_example_3.png here
+        //insert art_style_example_4.png here
+        //insert art_style_example_5.png here
     
     15. **Copyright: ordinary artist borrow, great artist steal. no, wait, don't.
     
