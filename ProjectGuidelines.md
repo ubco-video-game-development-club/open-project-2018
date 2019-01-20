@@ -9,140 +9,103 @@
     6. Ok, go at it!
     
 2. Art Assets
-    **Part I: Basic rule of pxiel art (skip this part entirely if you are a pro)
-    1. **Line and shape
-        a) Line
-            -curve line
-                -pixel-perfect: always clean you line to make sure it have perfect strokes. 
-                 Do it manually if your sofeware do not support this feature.
-                //insert pixel_perfect.png here
-            -straight line
-                -Diagonal line: always use ratio to make sure the drawing is nice and clean.
-                //insert diagonal_line_ratio.png here
-                
-        b) Shape
-            -if generate by tool, always clean manually.
-                
-        c) Anti-aliasing
-            *further discussion would be required, do not use them as for now. they are hard to remove but easy to add.
-            //insert anti_aliasing.png here
-                
-        d) outlining
-            *further discussion would be required. 
-                
-    2. **Shading and lighting
-        a) contrast and value: contract should be mantained at a reasonable level where the background, foreground and player can be easily differentiated but not splitted.
-        
-        b) positive and negative space: a clear relationship between positive and negative space should be maintained to ensure the ease of differentiating background and object.
-        
-        c) dithering: yes.
-            *further discussion would be required. a single style of dithering would be selected for all assets. 
-            //insert dithering.png here
-            
-        d)shading mode: got em use em. it could save you some time, but they are not mandatory.
-            
-    3. **Color and texture
-        a) property of colour: RGB color model is recommended for starter.
-        *detail information would be added upon request, you should know these already.
-            -Hue (H)
-            -Saturation (S)
-            -Value (V)
-            
-        b) alpha (A)
-        *further experiment would be required. do not use for now. if you have to use this channel to get the color you want, something has gone horribly wrong. stop it, get some help.
-        
-        c) color theory: use RGB. it just work.
-        *detail information would be added upon request.
-        
-        d) color harmany: use a color weel. 
-            -Complementary harmony: (reduce saturation to maintain balance)
-            -monochromatic harmony: (maintain contract when using this method)
-            -analogous harmony
-            -and more, you are a artist now, do what you want. 
-            
-        e) color palette
-            -Hue shifting: yes. HSL color model is recommended.
-            *further discussion would be required. it is not certain if this can be integrated into the lighting system, but it is a good habit to always do it.
-            
-        f) texture
-            -creating texture
-            -applying texture to object
-            
-        g) blend modes: got em use em. it could save you some time, not mandatory.
-            
-    4. **Tile
-        a) tile mode
-            -simple tile: add material in the side to connect nearby tile, avoid obvious pattern. 
-            
-        b) untiy nine slice
-        *further discussion would be required. it is a simple built in tool in unity that would do the trick but it does not allow you to edit the tile on the run. 
-            -draw mode
-                -simple: do not use. not suitable for anything unless you purposely want to trash your texture. 
-                -sliced
-                    -corner section: does not change size.
-                    -vertical secion: stretch horizontally.
-                    -hroizontal section: stretch vertically.
-                    -middle section: strech both horizontally and vertially.
-                -tile
-                    -corner section: does not change size.
-                    -vertical secion: replicate horizontally.
-                    -hroizontal section: replicate vertically.
-                    -middle section: replicate both horizontally and vertially.
-                    -continuous mode: allow the middle tile to replicate freely.
-                    -adaptive mode: only replicate when reach streach value. (does not work well for pixel art)
-                    
-        c) i am poor and i use windows paint which don't have tile support
-            -cutting technique: cut one tile into four part and rearrange them. ie. top left switch with bottom right, top right switch with bottom left. and add material in the middle to hide any obvious pattern.
-            
-    5. **Background
-        *detail information would be added upon request. it is one of the most difficult part, and it it too complex to describe in words.
-        -shadow
-        -color
-        -shape
-        -adding reflection: copy the object you want to reflect and flip it in the water / mirror, reduce the opacity and add distortion effect manually. this is the only place you should be using the alpha channel.
-        //insert reflection.png here
-        
-    6. **Character
-        *further discussion would be required. a single style would be selected for all character.
-    
-    7. **Animation
-        *further discussion would be required. 
-        -onion skin
-        -blue/red mode
-        -frame tags
-        
-    8. **Miscellaneous
-        -layer
-        -background: object should always have a transparent background. in other words, don't draw background for objects.
-        -tip and trick for asprite and Krita?
-            *further discussion would be required. 
-        -data recovery
-            
-    **Part II: Guideline and standard 
-    8. **Sprite sheet standard
+    1. **Sprite sheet format
         *further discussion would be required. the size and format are highly dependent on the size and the number of the assets.
-    
-        a) size of the sprite sheet: should be always be multiple of size of the tile. Individual submission should adjust the size according to the size of the object.ie. don't create a 1920* 1080 sprite sheet for a 8* 8 sprite.
         
-        b) background for object sprite: no back ground should be included. ie. leave it as transparent. In fact, create a file with transparent background or no background and dont ever add them.
+        a) static object
+            *creation of object should follow the general guide for pixel art section _.
+            -dimensions of object sprite: the size of objects are determined by the size of tile. the dimension of most object should be smaller than the size of tiles/grids. if a object is larger than a tile, its dimension should be multiply of a tile.
+            //insert dimension_of_object.png here
+            -background of object sprite: no back ground should be included. ie. leave it as transparent. In fact, create a file with transparent background or no background.
+
+        b) animated object
+            *if your software have automatic conversion, use the conversion. each frame in a animation should be kept in the same sprite sheet and arranged in the correct order. add discription and numbering of necessary. 
+            -animation of player model: the creation of the player model animation should be carefully consider to ensure a responsive control and a smooth movment. follow the frame rate in animation guideline in section 4.
+            -animation of enemey minion: the enemy minion animation should be limited to simple movemnt to ensure the ease of identification movment. follow the frame rate in animation guideline in section 4, use static frame if necessery.
+            -animation of enemy bosses: the animation for bosses should cope well with their respective property/style. follow the frame rate in animation guideline in section 4, use static frame if necessery.
+            -animation of other object: animation of small objects or fast moving objects should be avoided. 
         
-        c) dimensions of the object sprite: the length and width of a object should be kept as close as possible to the size of tiles/grid.
-        //insert dimension_of_object.png here
+        c) tile
+            *it is not sure if tile would be necessery for this project. 
+            *creation of tile should follow the general guide for pixel art section _.
+            -dimensions of tile: TBD
+            -animation of tile: follow the animation frame rate in guideline in section 4, use static frame if necessery. 
+                *further discussion would be required. usage of animated tile should be careful considered as it could distract the player from following the player model.
         
-        d)tile: size of the tile is current TBD. They should be a perfect square with no transparent spots. Follow the rules in session 4 of the first part when creating tile.
+        d) background / foreground
+            *it is not sure if backgound and foreground would be necessery for this project.
+            -dimensions of backgound: follow the game reslotion in section _.
+            -dimensions of foregound: size of the foreground should very according to need.
+            -animation of background/foreground: follow the animation frame rate guideline in section 4, use static frame if necessery.
+                *further discussion would be required. just like animated tile, it should be careful considered as it could distract the player from following the player model.
+
+        e) particle effect
+            -TBD
         
-        e) animation of object: each frame in a animation should be kept in the same sprite sheet and next to each other in the correct order. add discription and numbering if necessary. if your software have automatic conversion, use the conversion.
-        //insert animation.png here
+        f) sprite sheet
+            -submission of sprite sheet: should be always be multiple of the demension of a tile. Individual submission should adjust the size according to the size of the object.ie. don't create a 1920* 1080 sprite sheet for a 8* 8 sprite. the emthod of submssion is TBD.
+            -integration of sprite: communcate with other team and other artist before integrating sprites sheets. save them in .png format with an unambiguous file name. note, use "_" instead of spaces in the name. do not include symbols. Attach a file or include description of necessary. follow the coordinate system guideline in section 5, no exceptions.
         
-        f) background: size of the background should be always be multiple of size of the tile. background should not not have any spot that are transparent. Follow the rules in session 2 of the first part when creating background.
+    2. **usage of pixel art technique
+        *require further disucssion.
+        a)usage of anti-aliasing
+            *further discussion would be required, do not use them as for now. they are hard to remove but easy to add.
+            
+        b)usage of outlining
+            *further discussion would be required. 
+            
+        c)dithering
+            *further discussion would be required. a single dithering style will be selected for all assets.
         
-        g)foreground: size of the foreground should be always be multiple of size of the tile. Follow the rules in session 2 of the first part when creating foreground.
+    3.**art style and color
+        *color selection should follow the general guide for pixel art section _. color should be determined before creating the sprite to maintain consistency within each stages. style should be determined before creating any sprite for the project to maintain consistency within the game.
+            a) player
+                -player model: do not repersent the actual size of the hit box.
+                -player wingman model: smaller than player model but follow the same color and style.
+                -player projectile: must be different from the enemy projectile. should be smaller and faster moving with a less eye catching color.
+            b) stage_1 (
+                -enemy
+                -backgound
+                -foreground
+                -environmental
+            c) stage_2 (
+                -enemy
+                -backgound
+                -foreground
+                -environmental
+            d) stage_3 (
+                -enemy
+                -backgound
+                -foreground
+                -environmental
+            e) stage_4 (
+                -enemy
+                -backgound
+                -foreground
+                -environmental
+            f) stage_5 (
+                -enemy
+                -backgound
+                -foreground
+                -environmental
+            g) user interface
+                -UI
+                -background art
+                -desktop icon
+                -club logo
+
+    4. **animation and particle
+        a) animation style: TBD
         
-        h) Integration of the sprite sheets
-            -submission of sprite: the submission of sprite should be in individual files of .png format with an unambiguous file name. note, use "_" instead of spaces in the name. 
-            -integration of sprite: communcate with other team and other artist before do any attempt of integrating the sprites sheets. save them in .png format with an unambiguous file name. note, use "_" instead of spaces in the name. Attach a file or include description of necessary.
-       
-    9. **Lighting channel
+        b) animation frame rate: TBD
+        
+        c) particle style: follow the style of other animated objects. TBD
+        
+        d) particle frame rate: follow the frame rate of other animated objects. TBD. 
+                
+    5. **Coordinate system: use pixel as unit is recommonded, do not create a tile coordinate system. trust me, i'm an engineer.
+                
+    6. **Lighting channel
         *detail information would be added latter.
         *further discussion would be required. ideally, each of the direction channels should have at least five different colors representing fire different angle. ie.0, 45, 90, 135, 180 degree.
     
@@ -152,43 +115,34 @@
         b) horizontal channel: color TBD. represent the horizontal directions that the pixel is facing. ie. left and right. 
         //insert horizontal_channel.png here
         
-
-        
-    10. **Reflection channel
+    7. **Reflection channel
     *detail information would be added latter.
         a) material: color TBD. Different material have different effect of reflection. ie. metal would be more reflective than wood.
         
-    11. **Scatter channel
+    8. **Scatter channel
         *detail information would be added latter.
     
         a) fragment: each color represent a different piece of fragment which would be lauched to a different direction when explode. note, only assign one color to one piece of fragment and do not reuse colors.
         
-        a) noise
+        a) noise: the minimal acceptable differences between two colors to be identified as different fragments. actually value TBD.
         //insert scatter_channel.png here
         
-    12. **File format
+    9. **File format
         a) format conversion between software: it is impossible to convert between different software format. if you must send the sprite to another artist who is using different software, try divide different layer into separate .png files and let the receiver import them into different layers.
         
-        b) defult format of the project: .png, all final sprite sheet should be saved as .png file. it just work.
+        b) defult format of sprite sheet submissions: .png, all static sprite sheet should be saved as .png file. use the conversion format for animatied object.
+        *further discussion would be required. depends on which way is easier for the coding team to work with. before this format is confirmed, preserve them in software format.
+    
+    10. **Copyright: ordinary artist borrow, great artist steal. 
+    
+    11. **Recommonded software
+        Asprite     14.99CAD
+        Krita       free
+        Piskel      free
+        pyxel edit  9.00CAD         (outdated version are free)
+        Photoshop   US$29.99/mo     (just don't, unless you just happened to have a free one by accident)(additional information on how to config PS for pixel art will be added upon request)
         
-    13. **Coordinate system: use pixel as unit is recommonded, do not create a tile coordinate system. trust me, i'm an engineer.
-    
-    14. **General art style: TBD
-        *further discussion would be required.
-        //insert art_style_example_1.png here
-        //insert art_style_example_2.png here
-        //insert art_style_example_3.png here
-        //insert art_style_example_4.png here
-        //insert art_style_example_5.png here
-    
-    15. **Copyright: ordinary artist borrow, great artist steal. no, wait, don't.
-    
-    **Recommonded software
-    Asprite     14.99CAD
-    Krita       free
-    Piskel      free
-    pyxel edit  9.00CAD (outdated version are free)
-    Photoshop   US$29.99/mo (just don't, unless you just happened to have a free one by accident)(additional information on how to config PS for pixel art will be added upon request)
+    12. **the "pixel art guide": contain more detail regarding the creation of pixel art. based on asprite.
     
 3. Game Design/Level Creation
     1. To be added
