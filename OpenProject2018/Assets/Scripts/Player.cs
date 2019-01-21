@@ -1,19 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour {
-
+    
+    /// <summary>
+    /// Rigidbody velocity of the player.
+    /// </summary>
     [Header("Player Options")]
-    public float movementSpeed = 1;
+    public float movementSpeed = 1f;
+    /// <summary>
+    /// Minimum time delay between firing bullets.
+    /// </summary>
     public float attackCooldown = 0;
-
+    
     private float attackTimer = 0;
 
+    /// <summary>
+    /// Bullet prefab to be spawned by the player when firing bullets.
+    /// </summary>
     [Header("Bullet Options")]
     public GameObject bulletPrefab;
-    public float bulletSpeed = 1;
-    public float bulletSpawnDistance = 1;
+    /// <summary>
+    /// Rigidbody velocity of the bullet.
+    /// </summary>
+    public float bulletSpeed = 1f;
+    /// <summary>
+    /// Distance from the player that bullets will spawn.
+    /// </summary>
+    public float bulletSpawnDistance = 1f;
 
 	private void Start()
     {
