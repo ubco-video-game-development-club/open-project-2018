@@ -7,8 +7,6 @@ public class Player : MonoBehaviour {
     /// </summary>
     [Header("Player Options")]
     public float movementSpeed = 1f;
-    public float acceleration = 0.2f;
-    public float damping = 0.8f;
     /// <summary>
     /// Minimum time delay between firing bullets.
     /// </summary>
@@ -59,6 +57,7 @@ public class Player : MonoBehaviour {
             attackTimer = attackCooldown + 1;
         }
 
+        //Shoot on LMB
         if (Input.GetButton("Fire1") && attackTimer > attackCooldown)
         {
             Shoot();

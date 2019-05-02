@@ -17,13 +17,13 @@ public class Enemy : MonoBehaviour {
     /// <summary>
     /// List of EnemyActions that form the enemy's movement sequence.
     /// </summary>
-    private List<EnemyAction> movementSequence;
+    protected List<EnemyAction> movementSequence;
     /// <summary>
     /// Index of the current step in the enemy's movement sequence.
     /// </summary>
-    private int actionIndex;
+    protected int actionIndex;
 
-    private void Start ()
+    public virtual void Start ()
     {
         movementSequence = new List<EnemyAction>();
         ReadMovementSequenceFile();
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour {
         movementSequence[actionIndex].Init(gameObject);
     }
 	
-	private void FixedUpdate ()
+	protected void FixedUpdate ()
     {
         bool completed = movementSequence[actionIndex].Run(gameObject);
 
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour {
         }
 	}
 
-    private void ReadMovementSequenceFile()
+    protected void ReadMovementSequenceFile()
     {
         string[] sequence = movementSequenceFile.text.Split(new string[] { Environment.NewLine, " " }, StringSplitOptions.None);
         for (int i = 0; i < sequence.Length; i++)
